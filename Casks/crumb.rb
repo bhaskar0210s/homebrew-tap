@@ -8,7 +8,7 @@ cask "crumb" do
   homepage "https://github.com/bhaskar0210s/crumb"
 
   depends_on arch: :arm64
-  depends_on macos: ">= :golden_gate"
+  depends_on macos: :golden_gate
 
   auto_updates true
 
@@ -16,11 +16,11 @@ cask "crumb" do
 
   # Crumb isn't notarized by Apple. Without the quarantine flag that Homebrew puts on downloads, macOS opens it
   # without asking whether it is free of malware.
-  postflight do
-    system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{appdir}/Crumb.app"]
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/Crumb.app"]
   end
 
-  uninstall quit: "app.crumb.Crumb"
+  uninstall signal: [["TERM", "app.crumb.Crumb"]]
 
   zap trash: [
     "~/Library/Application Support/Crumb",
