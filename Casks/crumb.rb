@@ -22,6 +22,8 @@ cask "crumb" do
 
   uninstall signal: [["TERM", "app.crumb.Crumb"]]
 
+  caveats "Open Crumb once from Applications or Spotlight. After that, press ⇧⌘C anywhere to see what you copied."
+
   zap trash: [
     "~/Library/Application Support/Crumb",
     "~/Library/Preferences/app.crumb.Crumb.plist",
