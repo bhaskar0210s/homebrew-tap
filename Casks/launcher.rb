@@ -1,6 +1,6 @@
 cask "launcher" do
-  version "1.2.0"
-  sha256 "2e6daee03352b81003665f25cab116ae7329afcf6ed66a5618862ceac3ebb46c"
+  version "1.2.1"
+  sha256 "0781d75d1d1b0191585d9bdb7bfeb099fc36c266185dcfaea847a24f168c77b6"
 
   url "https://github.com/bhaskar0210s/launcher/releases/download/v#{version}/Launcher.dmg"
   name "Launcher"
